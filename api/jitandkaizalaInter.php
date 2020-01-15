@@ -34,6 +34,7 @@ if (strlen($G_TOKEN) > 10)
     $results ="Tester";
     fwrite($fh, $results);
     fclose($fh);
+	echo json_encode("The API EndPoint is working properly");
     
 }else{
     echo json_encode("Please provided Basic Authorization to proceed");
