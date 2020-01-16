@@ -32,10 +32,10 @@ if (strlen($G_TOKEN) > 10)
     //Validate the Basic Authorization
     //Check if Basic Time has no expired
     //Testing
-    $details = json_decode(file_get_contents("php://input"));
+    //$details = json_decode(file_get_contents("php://input"));
     //$fh = fopen('log.txt', 'w') or die("Can't open file.");
     // output the value as a variable by setting the 2nd parameter to true
-    $results = print_r($details, true);
+    //$results = print_r($details, true);
     //$results ="Tester";
     //fwrite($fh, $results);
     //fclose($fh);
@@ -70,7 +70,7 @@ if (strlen($G_TOKEN) > 10)
         // Content
         $mail->isHTML(true);                                  // Set email format to HTML
         $mail->Subject = 'Here is the subject';
-        $mail->Body    = 'This is the HTML message body <b>in bold!</b> '.$results;
+        $mail->Body    = 'This is the HTML message body <b>in bold!</b> '.$_SERVER['QUERY_STRING'] ;
         $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
         $mail->send();
