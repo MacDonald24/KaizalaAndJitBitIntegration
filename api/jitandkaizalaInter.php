@@ -9,7 +9,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
 date_default_timezone_set('Africa/Johannesburg');
-
+require 'sendemail.php';
 $G_TAKE = "";
 foreach (getallheaders() as $name => $value) {
     if ($name == "Authorization") {
@@ -34,7 +34,14 @@ if (strlen($G_TOKEN) > 10)
     $results ="Tester";
     fwrite($fh, $results);
     fclose($fh);
-	echo json_encode("The API EndPoint is working properly");
+	
+	
+	$ToEmailList = "oarabile.macdonald@smollan.com";
+	$Subject  = "Testing the world";
+	$bodyContent = "The API EndPoint is working properly";
+
+	SendEmail($ToEmailList,$Subject,$bodyContent);
+	///echo json_encode("The API EndPoint is working properly");
     
 }else{
     echo json_encode("Please provided Basic Authorization to proceed");
